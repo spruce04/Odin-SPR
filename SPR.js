@@ -1,10 +1,3 @@
-//scissors paper rock, played in the command line/console
-const user = prompt('Welcome, player! Please enter your name: ')
-const validChoice = ['scissors', 'paper', 'rock'];
-let playerScore = 0
-let computerScore = 0
-
-//determine the choice of the computer
 function computerPlay() {
     let compChoice
     let compNumber = Math.floor(Math.random() * 3)
@@ -22,92 +15,80 @@ function computerPlay() {
     return compChoice
 }
 
-//determine the choice of the player
-function playerSelection() {
-    let playerChoice = prompt(`${user}, choose Scissors, Paper, or Rock: `).toLowerCase()
-    if (validChoice.indexOf(playerChoice) == -1) {
-        alert('Please enter a valid option.')
-        playerSelection()
-    }
-    else {
-        return playerChoice
-    }
-}
-
-//play again
-function continuePlay() {
-    keepPlay = prompt('Would you like to play again? Please enter Yes or No.').toLowerCase()
-    if (keepPlay == 'yes') {
-        console.log('playing again...')
-        return 'yes'
-    }
-    else if (keepPlay == 'no') {
-        throw new Error("Quitting game. Thanks for playing!");
-    }
-    else {
-        alert('Please enter a valid option.')
-        continuePlay()
-    }
-}
-
-
 //play a round
 function playRound(computerSelect, playerSelect) {
     if (playerSelect == 'rock') {
         if (computerSelect == 'scissors') {
-            alert('Rock smashes scissors. You Win!')
+            result.textContent = 'Rock smashes scissors. You Win!'
+            result.style.color = '#103900'
             playerScore = playerScore + 1
-            alert(`Score: ${user} has ${playerScore} points. Computer has ${computerScore} points.`)
+            pScore.textContent = playerScore
         }
         else if (computerSelect == 'paper') {
-            alert('Paper smothers rock. You lose...')
+            result.textContent = 'Paper smothers rock. You lose...'
+            result.style.color = '#e53d00'
             computerScore = computerScore + 1
-            alert(`Score: ${user} has ${playerScore} points. Computer has ${computerScore} points.`)
+            cScore.textContent = computerScore
         }
         else {
-            alert(`You both chose ${playerSelect}. It's a draw!`)
-            alert(`Score: ${user} has ${playerScore} points. Computer has ${computerScore} points.`)
+            result.textContent = "It's a draw!"
+            result.style.color = 'white'
         }
     }
     else if (playerSelect == 'scissors') {
         if (computerSelect == 'rock') {
-            alert('Rock smashes scissors. You lose...')
+            result.textContent = 'Rock smashes scissors. You lose...'
+            result.style.color = '#e53d00'
             computerScore = computerScore + 1
-            alert(`Score: ${user} has ${playerScore} points. Computer has ${computerScore} points.`)
+            cScore.textContent = computerScore
         }
         else if (computerSelect == 'paper') {
-            alert('Scissors slices paper. You win!')
+            result.textContent = 'Scissors slices paper. You Win!'
+            result.style.color = '#103900'
             playerScore = playerScore + 1
-            alert(`Score: ${user} has ${playerScore} points. Computer has ${computerScore} points.`)
+            pScore.textContent = playerScore
         }
         else {
-            alert(`You both chose ${playerSelect}. It's a draw!`)
-            alert(`Score: ${user} has ${playerScore} points. Computer has ${computerScore} points.`)
+            result.textContent = "It's a draw!"
+            result.style.color = 'white'
         }
     }
     else if (playerSelect == 'paper') {
         if (computerSelect == 'rock') {
-            alert('Paper smothers rock. You win!')
+            result.textContent = 'Paper smothers rock. You Win!'
+            result.style.color = '#103900'
             playerScore = playerScore + 1
-            alert(`Score: ${user} has ${playerScore} points. Computer has ${computerScore} points.`)
+            pScore.textContent = playerScore
         }
         else if (computerSelect == 'scissors') {
-            alert('Scissors slices paper. You lose...')
+            result.textContent = 'Scissors slices paper. You lose...'
+            result.style.color = '#e53d00'
             computerScore = computerScore + 1
-            alert(`Score: ${user} has ${playerScore} points. Computer has ${computerScore} points.`)
+            cScore.textContent = computerScore
         }
         else {
-            alert(`You both chose ${playerSelect}. It's a draw!`)
-            alert(`Score: ${user} has ${playerScore} points. Computer has ${computerScore} points.`)
+            result.textContent = "It's a draw!"
+            result.style.color = 'white'
         }
     }
-    //determine if the game will continue
-    continuePlay()
 }
 
-//loop game
-while (true) {
-    let computerSelect = computerPlay()
-    let playerSelect = playerSelection()
-    playRound(computerSelect, playerSelect)
-}
+//dom targets
+const pScore = document.getElementById("pDisplay")
+const cScore = document.getElementById("cDisplay")
+const scissors = document.getElementById("scissors")
+const paper = document.getElementById("paper")
+const rock = document.getElementById("rock")
+const result = document.getElementById("displayResult")
+
+//some initial setup
+let playerScore = 0
+let computerScore = 0
+pScore.textContent = playerScore
+cScore.textContent = computerScore
+let computerSelect = computerPlay()
+
+//listen for clicks
+scissors.addEventListener("click", playRound(computerSelect,'scissors'))
+paper.addEventListener("click", playRound(computerSelect, 'paper'))
+rock.addEventListener("click", playRound(computerSelect, 'rock'))

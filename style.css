@@ -1,0 +1,96 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: #20115b;
+    font-family:Alumni Sans, 'Times New Roman';
+}
+
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    font-size: 56px;
+    color: #B9A44C;
+    padding: 16px;
+    padding-bottom: 0px;
+}
+
+li {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.scoreDisplay {
+    display: flex;
+    margin-top: -36px;
+}
+
+.pScore, .cScore {
+    display: flex;
+    color: #A57C00;
+    font-size: 34px;
+}
+
+.scoreText {
+    color: #76BED0;
+    font-size: 24px;
+    margin-top: 8px;
+}
+
+.play {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.choose {
+    font-size: 36px;
+    padding-bottom: 36px;
+    color: #838996;
+}
+
+.footer {
+    color:#B9A44C;
+    background-color: #7232f2;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: 8px;
+    padding: 20px;
+    font-size: 20px;
+    margin-top: auto;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    font-size: 30px;
+    color: #20115b;
+}

@@ -4,14 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scissors Paper Rock</title>
-    <script src="SPR.js"></script>
+    <title>Scissors. Paper. Rock.</title>
+    <script src="SPR.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="placeholder">
-        <p>Scissors Paper Rock.</p> 
-        <p>Played with alerts and prompts. CSS and GUI will be implemented after I learn to make html interact with javascript.</p>
-    </div>
-  
+        <div class="header">
+            <strong>Scissors. Paper. Rock.</strong>
+        </div>
+        <div class="scoreboard">
+            <div class="scoreText">
+             <h1>Scores:</h1>
+             </div>
+             <div class="scoreDisplay">
+            <ul class="pScore">
+                <li>Player Score:</li>
+                <li id="pDisplay"></li>
+            </ul>
+            <ul class="cScore">
+               <li>Computer Score:</li>
+               <li id="cDisplay"></li>
+            </ul>
+        </div>
+       </div>
+       <div id="displayResult" class="result">
+           .
+       </div>
+       <div class="play">
+           <div class="choose">
+           <strong>Choose Your Weapon:</strong> </div>
+           <ul class="icons">
+           <li id="scissors" class="iconList"><img src="./Images/Scissors.png" alt="Scissors"></li>
+           <li id="paper" class="iconList"><img src="./Images/Paper.png" alt="Paper"></li>
+           <li id="rock" class="iconList"><img src="./Images/Rock.png" alt="Rock"></li>
+        </ul>
+       </div>
+       <div class="footer">
+           Made by &nbsp;<a href="https://github.com/spruce04/Odin-SPR/tree/SPR_DOM" target="_blank">sprue04</a>  &nbsp; using HTML CSS and JS.
+       </div>  
 </body>
 </html>
