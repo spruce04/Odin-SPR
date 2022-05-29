@@ -1,3 +1,36 @@
+//dom targets
+const pScore = document.getElementById("pDisplay")
+const cScore = document.getElementById("cDisplay")
+const scissors = document.getElementById("scissors")
+const paper = document.getElementById("paper")
+const rock = document.getElementById("rock")
+const result = document.getElementById("displayResult")
+
+//some initial setup
+let playerScore = 0
+let computerScore = 0
+pScore.textContent = playerScore
+cScore.textContent = computerScore
+let computerSelect
+
+//listen for clicks
+scissors.addEventListener("click", function() {
+    computerSelect = computerPlay()
+    playerSelect = 'scissors'
+    playRound(computerSelect, playerSelect)
+})
+
+paper.addEventListener("click", function() {
+    computerSelect = computerPlay()
+    playerSelect = 'paper'
+    playRound(computerSelect, playerSelect)
+})
+rock.addEventListener("click", function() {
+    computerSelect = computerPlay()
+    playerSelect = 'rock'
+    playRound(computerSelect, playerSelect)
+})
+
 function computerPlay() {
     let compChoice
     let compNumber = Math.floor(Math.random() * 3)
@@ -20,7 +53,7 @@ function playRound(computerSelect, playerSelect) {
     if (playerSelect == 'rock') {
         if (computerSelect == 'scissors') {
             result.textContent = 'Rock smashes scissors. You Win!'
-            result.style.color = '#103900'
+            result.style.color = '#009B77'
             playerScore = playerScore + 1
             pScore.textContent = playerScore
         }
@@ -44,7 +77,7 @@ function playRound(computerSelect, playerSelect) {
         }
         else if (computerSelect == 'paper') {
             result.textContent = 'Scissors slices paper. You Win!'
-            result.style.color = '#103900'
+            result.style.color = '#009B77'
             playerScore = playerScore + 1
             pScore.textContent = playerScore
         }
@@ -56,7 +89,7 @@ function playRound(computerSelect, playerSelect) {
     else if (playerSelect == 'paper') {
         if (computerSelect == 'rock') {
             result.textContent = 'Paper smothers rock. You Win!'
-            result.style.color = '#103900'
+            result.style.color = '#009B77'
             playerScore = playerScore + 1
             pScore.textContent = playerScore
         }
@@ -73,22 +106,3 @@ function playRound(computerSelect, playerSelect) {
     }
 }
 
-//dom targets
-const pScore = document.getElementById("pDisplay")
-const cScore = document.getElementById("cDisplay")
-const scissors = document.getElementById("scissors")
-const paper = document.getElementById("paper")
-const rock = document.getElementById("rock")
-const result = document.getElementById("displayResult")
-
-//some initial setup
-let playerScore = 0
-let computerScore = 0
-pScore.textContent = playerScore
-cScore.textContent = computerScore
-let computerSelect = computerPlay()
-
-//listen for clicks
-scissors.addEventListener("click", playRound(computerSelect,'scissors'))
-paper.addEventListener("click", playRound(computerSelect, 'paper'))
-rock.addEventListener("click", playRound(computerSelect, 'rock'))
